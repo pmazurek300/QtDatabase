@@ -8,6 +8,14 @@
 #include <QSqlDatabase>
 #include <QMessageBox>
 
+#include <godzinyzajec.h>
+#include <grupazajeciowa.h>
+#include <kierunek.h>
+#include <pracownik.h>
+#include <prowadzacy.h>
+#include <student.h>
+#include <kurs.h>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class StudentOkno; }
 QT_END_NAMESPACE

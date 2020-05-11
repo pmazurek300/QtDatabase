@@ -7,8 +7,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::Window | Qt::MSWindowsFixedSizeDialogHint);
-    this->setWindowTitle("Uczelniany system zapisów");
+    this->setWindowTitle(tr("Uczelniany system zapisów"));
     connect(&oknoProwadzacego, SIGNAL(pokazLogowanie()), this, SLOT(logowanie()));
+  //      connect(this, SIGNAL(loguj_uzytkownika()),&oknoProwadzacego,SLOT(loguj_prowadzacego()));
 
 }
 
@@ -19,21 +20,52 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_zaloguj_clicked()
 {
-    bazaDanych = QSqlDatabase::addDatabase("QMYSQL");
-    bazaDanych.setUserName(ui->login->text());
-    bazaDanych.setPassword(ui->haslo->text());
-    bazaDanych.setDatabaseName("next_baza");
+    bazaDanych = QSqlDatabase::addDatabase(tr("QMYSQL"),tr("MyConnect"));
+    bazaDanych.setUserName("root");
+    bazaDanych.setPassword("");
+    bazaDanych.setDatabaseName(tr("next_baza"));
         // trzeba dopisac rozroznianie na prowadzacego i studenta (będa emitować 2 inne sygnały)
+    QString login = ui->login->text();
+    QString haslo = ui->haslo->text();
+
     if(bazaDanych.open()){
-        this->hide();
-        oknoProwadzacego.show();
-    }
-    else{
-        QMessageBox::information(this,"Błąd","Wprowadzone dane są niepoprawne!");
+        QSqlQuery query(QSqlDatabase::database("MyConnect"));
+        query.prepare("SELECT * FROM pracownik WHERE login = :login AND haslo = :haslo");
+        query.bindValue(":login",login);            //poprawic
+        query.bindValue(":haslo",haslo);
+        qDebug()<< query.value(1).toString();
+
+        if(!query.exec()){
+            QMessageBox::information(this,"Failed","Query failed");
+        }
+        else{
+            while(query.next()){
+
+                QString login_z_bd = query.value(1).toString();
+                QString haslo_z_bd = query.value(2).toString();
+
+                if(login_z_bd == login && haslo_z_bd == haslo){
+                    QMessageBox::information(this,"Success","Login success");
+                }
+                else{
+                    QMessageBox::information(this,"Failed","Login failed");
+                }
+            }
+        }
+      // this->hide();
+
+      //  oknoProwadzacego.show();
+
+//    }
+//    else{
+//        QMessageBox error;
+//        error.setText(tr("Wprowadzone dane są niepoprawne!"));
+//        error.setWindowTitle("Błąd");
+//        error.exec();
     }
 }
 
-void MainWindow::logowanie(){
-    // rozroznianie na prowadzacego i studenta
+void MainWindow::logowanie()
+{
     this->show();
 }
