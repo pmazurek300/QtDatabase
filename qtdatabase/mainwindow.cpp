@@ -30,39 +30,32 @@ void MainWindow::on_zaloguj_clicked()
 
     if(bazaDanych.open()){
         QSqlQuery query(QSqlDatabase::database("MyConnect"));
-        query.prepare("SELECT * FROM pracownik WHERE login = :login AND haslo = :haslo");
-        query.bindValue(":login",login);            //poprawic
-        query.bindValue(":haslo",haslo);
-        qDebug()<< query.value(1).toString();
+        query.prepare("SELECT * FROM pracownik");
 
         if(!query.exec()){
-            QMessageBox::information(this,"Failed","Query failed");
+            QMessageBox::information(this,"Błąd","Błędne Query");
         }
         else{
             while(query.next()){
 
-                QString login_z_bd = query.value(1).toString();
-                QString haslo_z_bd = query.value(2).toString();
-
+                QString login_z_bd = query.value("login").toString();
+                QString haslo_z_bd = query.value("haslo").toString();
+                qDebug() << login_z_bd;
+                qDebug() << haslo_z_bd;
                 if(login_z_bd == login && haslo_z_bd == haslo){
-                    QMessageBox::information(this,"Success","Login success");
+                    this->hide();
+                    oknoProwadzacego.show();
                 }
-                else{
-                    QMessageBox::information(this,"Failed","Login failed");
+                else {                //do poprawy zeby nie pokazywalo za kazdym razem w while ( moze sprobowac cos z do while i od warunkow)
+                    QMessageBox error;
+                    error.setText(tr("Wprowadzone dane są niepoprawne!"));
+                    error.setWindowTitle("Błąd");
+                    error.exec();
                 }
             }
         }
-      // this->hide();
-
-      //  oknoProwadzacego.show();
-
-//    }
-//    else{
-//        QMessageBox error;
-//        error.setText(tr("Wprowadzone dane są niepoprawne!"));
-//        error.setWindowTitle("Błąd");
-//        error.exec();
     }
+
 }
 
 void MainWindow::logowanie()
