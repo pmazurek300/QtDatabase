@@ -17,14 +17,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    godzinyzajec.cpp \
+    grupazajeciowa.cpp \
+    kierunek.cpp \
+    kurs.cpp \
     main.cpp \
     mainwindow.cpp \
+    pracownik.cpp \
+    prowadzacy.cpp \
     prowadzacyokno.cpp \
+    student.cpp \
     studentokno.cpp
 
 HEADERS += \
+    godzinyzajec.h \
+    grupazajeciowa.h \
+    kierunek.h \
+    kurs.h \
     mainwindow.h \
+    pracownik.h \
+    prowadzacy.h \
     prowadzacyokno.h \
+    student.h \
     studentokno.h
 
 FORMS += \

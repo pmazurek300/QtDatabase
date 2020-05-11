@@ -2,14 +2,22 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QMessageBox>
 #include <QDebug>
 #include <QtSql>
 #include <QSqlDatabase>
+#include <QSqlQuery>
 #include <QMessageBox>
 
 #include <prowadzacyokno.h>
 #include <studentokno.h>
+
+#include <godzinyzajec.h>
+#include <grupazajeciowa.h>
+#include <kierunek.h>
+#include <pracownik.h>
+#include <prowadzacy.h>
+#include <student.h>
+#include <kurs.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
