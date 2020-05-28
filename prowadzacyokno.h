@@ -36,10 +36,24 @@ private slots:
     void on_wyloguj_clicked();
     void zegar_tick();
 
+    void on_listastudentow_itemClicked(QListWidgetItem *item);
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    //void on_terminZapis_textChanged();
+
+    void on_pushButton_3_clicked();
+
+
+    void on_textedit_selectionChanged();
+
 private:
     Ui::ProwadzacyOkno *ui;
     QSqlDatabase baza_danych_prowadzacego;
     QTimer * timerzegara;
+    QSqlQuery queryP;
 
 };
 
