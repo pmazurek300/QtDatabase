@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/zdjecia">
+        <file>tloapki.jpg</file>
+    </qresource>
+</RCC>
