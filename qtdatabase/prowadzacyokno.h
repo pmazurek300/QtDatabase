@@ -24,7 +24,7 @@ class ProwadzacyOkno : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ProwadzacyOkno(QWidget *parent = nullptr);
+    explicit ProwadzacyOkno(QSqlQuery & query, QWidget *parent = nullptr);
 
 
 signals:
@@ -35,8 +35,6 @@ private slots:
 
 private:
     Ui::ProwadzacyOkno *ui;
-    QSqlDatabase baza_danych_prowadzacego;
-    QSqlQueryModel *qry;
 
 };
 

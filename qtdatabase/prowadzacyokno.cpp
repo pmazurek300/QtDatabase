@@ -1,7 +1,7 @@
 #include "prowadzacyokno.h"
 #include "ui_prowadzacyokno.h"
 
-ProwadzacyOkno::ProwadzacyOkno(QWidget *parent)
+ProwadzacyOkno::ProwadzacyOkno(QSqlQuery & query, QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::ProwadzacyOkno)
 {
@@ -11,8 +11,8 @@ ProwadzacyOkno::ProwadzacyOkno(QWidget *parent)
 
 void ProwadzacyOkno::on_wyloguj_clicked()
 {
-    this->close();
     emit pokazLogowanie();
+    delete this;
 //    qDebug() << baza_danych_prowadzacego.hostName();
 //    baza_danych_prowadzacego.open();
 //    qry = new QSqlQueryModel();

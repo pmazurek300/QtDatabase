@@ -8,9 +8,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->setWindowFlags(Qt::Window | Qt::MSWindowsFixedSizeDialogHint);
     this->setWindowTitle(tr("Uczelniany system zapisów"));
-    connect(&oknoProwadzacego, SIGNAL(pokazLogowanie()), this, SLOT(logowanie()));
-  //      connect(this, SIGNAL(loguj_uzytkownika()),&oknoProwadzacego,SLOT(loguj_prowadzacego()));
-
+    this->flaga_logowania=0;
+    bazaDanych = QSqlDatabase::addDatabase(tr("QMYSQL"),tr("MyConnect"));
+    bazaDanych.setUserName("root");
+    bazaDanych.setPassword("");
+    bazaDanych.setDatabaseName(tr("next_baza"));
 }
 
 MainWindow::~MainWindow()
@@ -20,45 +22,60 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_zaloguj_clicked()
 {
-    bazaDanych = QSqlDatabase::addDatabase(tr("QMYSQL"),tr("MyConnect"));
-    bazaDanych.setUserName("root");
-    bazaDanych.setPassword("");
-    bazaDanych.setDatabaseName(tr("next_baza"));
-        // trzeba dopisac rozroznianie na prowadzacego i studenta (będa emitować 2 inne sygnały)
     QString login = ui->login->text();
     QString haslo = ui->haslo->text();
 
     if(bazaDanych.open()){
-        QSqlQuery query(QSqlDatabase::database("MyConnect"));
-        query.prepare("SELECT * FROM pracownik");
+        QSqlQuery query_pracownik(QSqlDatabase::database("MyConnect"));
+        QSqlQuery query_student(QSqlDatabase::database("MyConnect"));
+        query_pracownik.prepare("SELECT * FROM pracownik");
+        query_student.prepare("SELECT * FROM student");
 
-        if(!query.exec()){
+        if(!query_pracownik.exec() || !query_student.exec()){
             QMessageBox::information(this,"Błąd","Błędne Query");
         }
-        else{
-            while(query.next()){
 
-                QString login_z_bd = query.value("login").toString();
-                QString haslo_z_bd = query.value("haslo").toString();
-                qDebug() << login_z_bd;
-                qDebug() << haslo_z_bd;
+        else{
+            while(query_pracownik.next() && this->flaga_logowania==0){
+
+                QString login_z_bd = query_pracownik.value("login").toString();
+                QString haslo_z_bd = query_pracownik.value("haslo").toString();
+
                 if(login_z_bd == login && haslo_z_bd == haslo){
                     this->hide();
-                    oknoProwadzacego.show();
-                }
-                else {                //do poprawy zeby nie pokazywalo za kazdym razem w while ( moze sprobowac cos z do while i od warunkow)
-                    QMessageBox error;
-                    error.setText(tr("Wprowadzone dane są niepoprawne!"));
-                    error.setWindowTitle("Błąd");
-                    error.exec();
+                    oknoProwadzacego = new ProwadzacyOkno(query_pracownik);
+                    connect(oknoProwadzacego, SIGNAL(pokazLogowanie()), this, SLOT(logowanie()));
+                    oknoProwadzacego->show();
+                    this->flaga_logowania=1;
+                    break;
                 }
             }
+            while(query_student.next() && this->flaga_logowania==0){
+                QString login_z_bd = query_student.value("login").toString();
+                QString haslo_z_bd = query_student.value("haslo").toString();
+
+                if(login_z_bd == login && haslo_z_bd == haslo){
+                    this->hide();
+                    oknoStudenta.show();
+                    this->flaga_logowania=1;
+                    break;
+                }
+            }
+            if(flaga_logowania ==0){
+                QMessageBox error;
+                error.setText(tr("Wprowadzone dane są niepoprawne!"));
+                error.setWindowTitle("Błąd");
+                error.exec();
+            }
         }
+
     }
-
 }
-
 void MainWindow::logowanie()
 {
+    this->flaga_logowania=0;
+    ui->login->clear();
+    ui->haslo->clear();
     this->show();
+
 }
