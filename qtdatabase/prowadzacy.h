@@ -13,6 +13,7 @@ public:
 
 private:
     QSqlQuery prowadzacy;
+
 };
 
 #endif // PROWADZACY_H

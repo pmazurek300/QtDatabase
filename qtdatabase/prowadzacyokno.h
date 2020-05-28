@@ -15,6 +15,8 @@
 #include <prowadzacy.h>
 #include <student.h>
 #include <kurs.h>
+#include <QTimer>
+#include <QListWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ProwadzacyOkno; }
@@ -32,9 +34,11 @@ signals:
 
 private slots:
     void on_wyloguj_clicked();
+    void zegar_tick();
 
 private:
     Ui::ProwadzacyOkno *ui;
+    QTimer * timerzegara;
 
 };
 

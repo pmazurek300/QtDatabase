@@ -24,7 +24,7 @@ class StudentOkno : public QWidget
 {
     Q_OBJECT
 public:
-    explicit StudentOkno(QWidget *parent = nullptr);
+    explicit StudentOkno(QSqlQuery & query, QWidget *parent = nullptr);
 
 signals:
 
