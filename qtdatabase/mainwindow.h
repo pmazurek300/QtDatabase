@@ -37,6 +37,5 @@ private:
     QSqlDatabase bazaDanych;
     ProwadzacyOkno *oknoProwadzacego;
     StudentOkno oknoStudenta;
-    bool flaga_logowania;
 };
 #endif // MAINWINDOW_H
