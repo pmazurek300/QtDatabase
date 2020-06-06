@@ -56,7 +56,8 @@ void MainWindow::on_zaloguj_clicked()
 
                     if(login_z_bd == login && haslo_z_bd == haslo){
                         this->hide();
-                        oknoStudenta = new StudentOkno(query_student);
+                        oknoStudenta = new StudentOkno(query_student,login_z_bd);
+                        connect(oknoStudenta, SIGNAL(pokazLogowanie()),this, SLOT(logowanie()));
                         oknoStudenta->show();
                         this->flaga_logowania=1;
                         break;
@@ -75,5 +76,8 @@ void MainWindow::on_zaloguj_clicked()
 
 void MainWindow::logowanie()
 {
+    this->flaga_logowania=0;
+    this->ui->login->clear();
+    this->ui->haslo->clear();
     this->show();
 }

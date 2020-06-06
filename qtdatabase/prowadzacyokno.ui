@@ -485,6 +485,11 @@
          </disabled>
         </palette>
        </property>
+       <property name="font">
+        <font>
+         <kerning>true</kerning>
+        </font>
+       </property>
        <property name="digitCount">
         <number>8</number>
        </property>
