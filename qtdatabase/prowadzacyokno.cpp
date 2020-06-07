@@ -27,7 +27,7 @@ ProwadzacyOkno::ProwadzacyOkno(QSqlQuery & query, QWidget *parent)
     while(queryP.next()){
         QString result = queryP.value("id_kursu").toString() + " " +
                 queryP.value("nazwa_kursu").toString() + " " +
-                queryP.value("forma_zajec").toString();
+                queryP.value("forma_zajec").toString()[0];
         new QListWidgetItem(result, ui->listakursow);
     }
     ui->dziengrupa->addItem("PN");
@@ -201,5 +201,39 @@ void ProwadzacyOkno::on_listagrup_itemClicked(QListWidgetItem *item)
 
 void ProwadzacyOkno::on_createnewgroup_clicked()
 {
+    int licznik = 1;
+    queryP.prepare("SELECT * from grupa_zajeciowa");
+    if(!queryP.exec()){
+        QMessageBox::information(this,"Błąd","Błędne Query");
+    }
+    while(queryP.next()){
+        licznik++;
+    }
+    QString dzien = ui->dziengrupa->currentText();
+    QString sala  = ui->salagrupa->toMarkdown().trimmed();
+    QString parzy = ui->parzystoscgrupa->currentText();
+    QString ilosc = ui->iloscgrupa->toMarkdown().trimmed();
+    QString prowa = QString::number(ui->prowadzacygrupa->currentIndex()+1);
+    QStringList l = ui->listakursow->currentItem()->text().split(' ', QString::SkipEmptyParts);
+    QString kurs  = l.first();
 
+    QString godz  = QString::number(ui->godzinagrupa->currentIndex()+1);
+    qDebug() << kurs;
+    queryP.prepare("INSERT INTO grupa_zajeciowa (id_grupy,id_kursu,id_prowadzacego,id_godziny_zajec,dzien_tygodnia,parzystosc_tygodnia,ilosc_miejsc,sala_zajeciowa) "
+                   "VALUES ('"+QString::number(licznik)+"','"+kurs+"','"+prowa+"','"+godz+"','"+dzien+"','"+parzy+"','"+ilosc+"','"+sala+"')");
+    if(!queryP.exec()){
+        QMessageBox::information(this,"Błąd","Błędne Query");
+    }
+    queryP.next();
+    new QListWidgetItem(QString::number(licznik), ui->listagrup);
+}
+
+void ProwadzacyOkno::on_pushButton_4_clicked()
+{
+    queryP.prepare("DELETE FROM grupa_zajeciowa WHERE id_grupy="+ui->listagrup->currentItem()->text());
+    if(!queryP.exec()){
+        QMessageBox::information(this,"Błąd","Błędne Query");
+    }
+    queryP.next();
+    delete ui->listagrup->currentItem();
 }

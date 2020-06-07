@@ -900,22 +900,6 @@
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
-             <widget class="QTextEdit" name="kodgrupy">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>30</height>
-               </size>
-              </property>
-             </widget>
-            </item>
             <item row="5" column="0">
              <widget class="QLabel" name="label_13">
               <property name="text">
@@ -1012,6 +996,19 @@
              <widget class="QPushButton" name="pushButton_5">
               <property name="text">
                <string>Modyfikuj</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="kodgrupy">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
               </property>
              </widget>
             </item>

@@ -55,6 +55,8 @@ private slots:
 
     void on_createnewgroup_clicked();
 
+    void on_pushButton_4_clicked();
+
 private:
     Ui::ProwadzacyOkno *ui;
     QSqlDatabase baza_danych_prowadzacego;
