@@ -26,7 +26,7 @@ class ProwadzacyOkno : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ProwadzacyOkno(QSqlQuery & query, QWidget *parent = nullptr);
+    explicit ProwadzacyOkno(QSqlQuery & query,QString & indentyfikator, QWidget *parent = nullptr);
 
 
 signals:
@@ -56,6 +56,16 @@ private slots:
     void on_createnewgroup_clicked();
 
     void on_pushButton_4_clicked();
+
+    void on_tabWidget_currentChanged(int index);
+
+    void on_kursy_zapisz_itemClicked(QListWidgetItem *item);
+
+    void on_grupy_zapisz_itemClicked(QListWidgetItem *item);
+
+    void on_zapisz_zapisz_clicked();
+
+    void on_wypisz_zapisz_clicked();
 
 private:
     Ui::ProwadzacyOkno *ui;

@@ -43,7 +43,7 @@ void MainWindow::on_zaloguj_clicked()
 
                     if(login_z_bd == login && haslo_z_bd == haslo){
                         this->hide();
-                        oknoProwadzacego = new ProwadzacyOkno(query_pracownik);
+                        oknoProwadzacego = new ProwadzacyOkno(query_pracownik,login_z_bd);
                         connect(oknoProwadzacego, SIGNAL(pokazLogowanie()), this, SLOT(logowanie()));
                         oknoProwadzacego->show();
                         this->flaga_logowania=1;
