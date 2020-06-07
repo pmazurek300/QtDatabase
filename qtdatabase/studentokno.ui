@@ -535,7 +535,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="zapisy">
       <attribute name="title">
@@ -550,10 +550,24 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QListWidget" name="grupy"/>
+        <widget class="QListWidget" name="grupy">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QListWidget" name="kursy"/>
+        <widget class="QListWidget" name="kursy">
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item row="1" column="0">
         <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -853,11 +867,11 @@
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Minimum</enum>
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>200</width>
               <height>20</height>
              </size>
             </property>
@@ -968,7 +982,14 @@
         </layout>
        </item>
        <item row="2" column="0">
-        <widget class="QListWidget" name="grupy_zapisany"/>
+        <widget class="QListWidget" name="grupy_zapisany">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_23">
