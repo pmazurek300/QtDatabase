@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     bazaDanych = QSqlDatabase::addDatabase(tr("QMYSQL"),tr("MyConnect"));
     bazaDanych.setUserName("root");
     bazaDanych.setPassword("");
-    bazaDanych.setDatabaseName(tr("next_baza"));
+    bazaDanych.setDatabaseName(tr("baza"));
 }
 
 MainWindow::~MainWindow()

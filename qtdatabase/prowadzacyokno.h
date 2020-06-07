@@ -77,6 +77,16 @@ private slots:
 
     void on_wypisz_zapisz_clicked();
 
+    void on_listastudentMODY_itemClicked(QListWidgetItem *item);
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_9_clicked();
+
+    void on_tabWidget_tabBarClicked(int index);
+
+    void on_pushButton_10_clicked();
+
 private:
     Ui::ProwadzacyOkno *ui;
     QSqlDatabase baza_danych_prowadzacego;
