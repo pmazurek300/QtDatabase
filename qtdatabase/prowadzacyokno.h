@@ -57,6 +57,16 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_pushButton_5_clicked();
+
+    void on_listaKURS_itemClicked(QListWidgetItem *item);
+
+    void on_createKURS_clicked();
+
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_7_clicked();
+
     void on_tabWidget_currentChanged(int index);
 
     void on_kursy_zapisz_itemClicked(QListWidgetItem *item);
