@@ -12,18 +12,7 @@ public:
     Student();
 
 private:
-    QString imie;
-    QString nazwisko;
-    QString id_indeks;
-    QString pesel;
-    QString login;
-    QString haslo;
-    QString email;
-    QString plec;
-    QString id_kierunku;
-    QString semestr;
-    QString prawo_do_zapisu;
-    QString termin_zapisu;
+    QSqlQuery student;
 };
 
 #endif // STUDENT_H

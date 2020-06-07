@@ -36,6 +36,7 @@ private:
     Ui::MainWindow *ui;
     QSqlDatabase bazaDanych;
     ProwadzacyOkno *oknoProwadzacego;
-    StudentOkno oknoStudenta;
+    StudentOkno *oknoStudenta;
+    bool flaga_logowania;
 };
 #endif // MAINWINDOW_H
