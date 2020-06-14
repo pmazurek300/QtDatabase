@@ -64,6 +64,7 @@ void StudentOkno::on_kursy_itemClicked(QListWidgetItem *item)
             QMessageBox::information(this,"Błąd","Błędne Query");
         }
         while(queryS.next()){
+            if(queryS.value("dzien_tygodnia").toString()!=" ")
             new QListWidgetItem("AREK"+queryS.value("id_grupy").toString()+item->text()[item->text().size()-1], ui->grupy);
         }
 }
@@ -214,6 +215,7 @@ void StudentOkno::on_tabWidget_tabBarClicked(int index)
         ui->godziny_zajec_przeg->clear();
         queryS.exec("SELECT * FROM grupa_zajeciowa");
         while(queryS.next()){
+            if(queryS.value("dzien_tygodnia").toString()!=" ")
             grupy.append(queryS.value("id_grupy").toString());
         }
         for(int i =0;i<grupy.size();i++){
