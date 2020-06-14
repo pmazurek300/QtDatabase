@@ -166,7 +166,8 @@ void ProwadzacyOkno::on_listakursow_itemClicked(QListWidgetItem *item)
         QMessageBox::information(this,"Błąd","Błędne Query");
     }
     while(queryP.next()){
-        new QListWidgetItem(queryP.value("id_grupy").toString(), ui->listagrup);
+        if(queryP.value("dzien_tygodnia").toString()!=" ")
+        new QListWidgetItem("AREK"+queryP.value("id_grupy").toString()+item->text()[item->text().size()-1], ui->listagrup);
     }
 }
 
@@ -175,7 +176,7 @@ void ProwadzacyOkno::on_listagrup_itemClicked(QListWidgetItem *item)
     ui->prowadzacygrupa->clear();
     ui->godzinagrupa->clear();
     QString idgodz, idprowadz;
-    queryP.prepare("SELECT * FROM grupa_zajeciowa WHERE id_grupy="+item->text());
+    queryP.prepare("SELECT * FROM grupa_zajeciowa WHERE id_grupy="+item->text().remove(0,4).remove(item->text().remove(0,4).size()-1,item->text().remove(0,4).size()));
     if(!queryP.exec()){
         QMessageBox::information(this,"Błąd","Błędne Query");
     }
@@ -249,17 +250,19 @@ void ProwadzacyOkno::on_createnewgroup_clicked()
         QMessageBox::information(this,"Błąd","Błędne Query");
     }
     queryP.next();
-    new QListWidgetItem(QString::number(licznik), ui->listagrup);
+    new QListWidgetItem("AREK"+QString::number(licznik)+ui->listakursow->currentItem()->text()[ui->listakursow->currentItem()->text().size()-1], ui->listagrup);
 }
 
-void ProwadzacyOkno::on_pushButton_4_clicked()
+void ProwadzacyOkno::on_pushButton_4_clicked()//usun grupe
 {
-    queryP.prepare("DELETE FROM grupa_zajeciowa WHERE id_grupy="+ui->listagrup->currentItem()->text());
+    if(ui->listagrup->currentItem() != nullptr){
+    queryP.exec("UPDATE grupa_zajeciowa SET dzien_tygodnia=' ' WHERE id_grupy="+ui->listagrup->currentItem()->text().remove(0,4).remove(ui->listagrup->currentItem()->text().remove(0,4).size()-1,ui->listagrup->currentItem()->text().remove(0,4).size()));
     if(!queryP.exec()){
         QMessageBox::information(this,"Błąd","Błędne Query");
     }
     queryP.next();
     delete ui->listagrup->currentItem();
+}
 }
 
 void ProwadzacyOkno::on_tabWidget_currentChanged(int index)
@@ -285,14 +288,15 @@ void ProwadzacyOkno::on_kursy_zapisz_itemClicked(QListWidgetItem *item)
     ui->grupy_zapisz->clear();
     queryP.exec("SELECT * FROM grupa_zajeciowa WHERE id_kursu="+item->text().split(" ")[0]);
     while(queryP.next()){
-        new QListWidgetItem(queryP.value("id_grupy").toString(),ui->grupy_zapisz);
+        if(queryP.value("dzien_tygodnia").toString()!=" ")
+        new QListWidgetItem("AREK"+queryP.value("id_grupy").toString()+item->text()[item->text().size()-1],ui->grupy_zapisz);
     }
 
 }
 
 void ProwadzacyOkno::on_grupy_zapisz_itemClicked(QListWidgetItem *item)
 {
-    queryP.exec("SELECT * FROM grupa_zajeciowa WHERE id_grupy="+item->text());
+    queryP.exec("SELECT * FROM grupa_zajeciowa WHERE id_grupy="+item->text().remove(0,4).remove(item->text().remove(0,4).size()-1,item->text().remove(0,4).size()));
     queryP.next();
 
     ui->dzien_zajec_zapisz->setText(queryP.value("dzien_tygodnia").toString());
@@ -305,7 +309,7 @@ void ProwadzacyOkno::on_grupy_zapisz_itemClicked(QListWidgetItem *item)
 
     ui->godziny_zajec_zapisz->setText(queryP.value("godzina_rozpoczecia").toString()+" - "+queryP.value("godzina_zakonczenia").toString());
 
-    queryP.exec("SELECT * FROM grupa_zajeciowa WHERE id_grupy="+item->text());
+    queryP.exec("SELECT * FROM grupa_zajeciowa WHERE id_grupy="+item->text().remove(0,4).remove(item->text().remove(0,4).size()-1,item->text().remove(0,4).size()));
     queryP.next();
 
     queryP.exec("SELECT * FROM prowadzący WHERE id_prowadzacego="+queryP.value("id_prowadzacego").toString());
@@ -313,7 +317,7 @@ void ProwadzacyOkno::on_grupy_zapisz_itemClicked(QListWidgetItem *item)
 
     ui->prowadzacy_zapisz->setText(queryP.value("tytul").toString()+" "+queryP.value("imie").toString()+" "+queryP.value("nazwisko").toString());
 
-    queryP.exec("SELECT * FROM grupa_zajeciowa WHERE id_grupy="+item->text());
+    queryP.exec("SELECT * FROM grupa_zajeciowa WHERE id_grupy="+item->text().remove(0,4).remove(item->text().remove(0,4).size()-1,item->text().remove(0,4).size()));
     queryP.next();
 
     queryP.exec("SELECT * FROM kurs WHERE id_kursu="+queryP.value("id_kursu").toString());
@@ -347,7 +351,7 @@ void ProwadzacyOkno::on_zapisz_zapisz_clicked()
         return;
     }
     else{
-        queryP.exec("SELECT * FROM grupa_zajeciowa WHERE id_grupy='"+ui->grupy_zapisz->currentItem()->text()+"'");
+        queryP.exec("SELECT * FROM grupa_zajeciowa WHERE id_grupy='"+ui->grupy_zapisz->currentItem()->text().remove(0,4).remove(ui->grupy_zapisz->currentItem()->text().remove(0,4).size()-1,ui->grupy_zapisz->currentItem()->text().remove(0,4).size())+"'");
         queryP.next();
         ui->wolne_miejsca_zapisz->setText(queryP.value("ilosc_miejsc").toString());
         if(queryP.value("ilosc_miejsc").toInt() == 0){
@@ -367,7 +371,7 @@ void ProwadzacyOkno::on_zapisz_zapisz_clicked()
     }
 
     if(ui->wolne_miejsca_zapisz->text().toInt() >= 0 ){
-        queryP.exec("UPDATE grupa_zajeciowa SET ilosc_miejsc=ilosc_miejsc-1 WHERE id_grupy="+ui->grupy_zapisz->currentItem()->text());
+        queryP.exec("UPDATE grupa_zajeciowa SET ilosc_miejsc=ilosc_miejsc-1 WHERE id_grupy="+ui->grupy_zapisz->currentItem()->text().remove(0,4).remove(ui->grupy_zapisz->currentItem()->text().remove(0,4).size()-1,ui->grupy_zapisz->currentItem()->text().remove(0,4).size()));
         queryP.next();
         queryP.exec("SELECT * FROM zapis WHERE id_zapisu=(SELECT MAX(id_zapisu) FROM zapis)");
         queryP.next();
@@ -377,7 +381,7 @@ void ProwadzacyOkno::on_zapisz_zapisz_clicked()
                        "VALUES (:id_zapisu, :id_indeksu, :id_grupy)");
         queryP.bindValue(":id_zapisu",id_do_zapisu);
         queryP.bindValue(":id_indeksu",ui->studenci_zapisz->currentItem()->text().split(" ")[0]);
-        queryP.bindValue(":id_grupy",ui->grupy_zapisz->currentItem()->text().toInt());
+        queryP.bindValue(":id_grupy",ui->grupy_zapisz->currentItem()->text().remove(0,4).remove(ui->grupy_zapisz->currentItem()->text().remove(0,4).size()-1,ui->grupy_zapisz->currentItem()->text().remove(0,4).size()).toInt());
         queryP.exec();
         queryP.next();
         QMessageBox::information(this,"","Zapis przeprowadzony poprawnie!");
@@ -406,10 +410,10 @@ void ProwadzacyOkno::on_wypisz_zapisz_clicked()
         return;
     }
 
-    queryP.exec("SELECT id_grupy="+ui->grupy_zapisz->currentItem()->text()+" FROM zapis WHERE id_indeksu="+ui->studenci_zapisz->currentItem()->text().split(" ")[0]);
+    queryP.exec("SELECT id_grupy="+ui->grupy_zapisz->currentItem()->text().remove(0,4).remove(ui->grupy_zapisz->currentItem()->text().remove(0,4).size()-1,ui->grupy_zapisz->currentItem()->text().remove(0,4).size())+" FROM zapis WHERE id_indeksu="+ui->studenci_zapisz->currentItem()->text().split(" ")[0]);
     bool czy_zapisany=false;
     while(queryP.next()){
-        if(queryP.value("id_grupy="+ui->grupy_zapisz->currentItem()->text()) == "1"){
+        if(queryP.value("id_grupy="+ui->grupy_zapisz->currentItem()->text().remove(0,4).remove(ui->grupy_zapisz->currentItem()->text().remove(0,4).size()-1,ui->grupy_zapisz->currentItem()->text().remove(0,4).size())) == "1"){
             czy_zapisany=true;
         }
     }
@@ -417,9 +421,9 @@ void ProwadzacyOkno::on_wypisz_zapisz_clicked()
         QMessageBox::information(this,"Błąd","Student nie jest zapisany!");
         return;
     }
-    queryP.exec("UPDATE grupa_zajeciowa SET ilosc_miejsc=ilosc_miejsc+1 WHERE id_grupy="+ui->grupy_zapisz->currentItem()->text());
+    queryP.exec("UPDATE grupa_zajeciowa SET ilosc_miejsc=ilosc_miejsc+1 WHERE id_grupy="+ui->grupy_zapisz->currentItem()->text().remove(0,4).remove(ui->grupy_zapisz->currentItem()->text().remove(0,4).size()-1,ui->grupy_zapisz->currentItem()->text().remove(0,4).size()));
     queryP.next();
-    queryP.exec("DELETE FROM zapis WHERE id_grupy="+ui->grupy_zapisz->currentItem()->text()+" AND id_indeksu="+ui->studenci_zapisz->currentItem()->text().split(" ")[0]);
+    queryP.exec("DELETE FROM zapis WHERE id_grupy="+ui->grupy_zapisz->currentItem()->text().remove(0,4).remove(ui->grupy_zapisz->currentItem()->text().remove(0,4).size()-1,ui->grupy_zapisz->currentItem()->text().remove(0,4).size())+" AND id_indeksu="+ui->studenci_zapisz->currentItem()->text().split(" ")[0]);
     queryP.next();
     QMessageBox::information(this,"","Student został wypisany!");
 
@@ -515,7 +519,7 @@ void ProwadzacyOkno::on_pushButton_5_clicked()
         QString prowa = QString::number(ui->prowadzacygrupa->currentIndex()+1);
         QStringList l = ui->listakursow->currentItem()->text().split(' ', QString::SkipEmptyParts);
         QString kurs  = l.first();
-        QString grupa = ui->listagrup->currentItem()->text();
+        QString grupa = ui->listagrup->currentItem()->text().remove(0,4).remove(ui->listagrup->currentItem()->text().remove(0,4).size()-1,ui->listagrup->currentItem()->text().remove(0,4).size());
 
         QString godz  = QString::number(ui->godzinagrupa->currentIndex()+1);
         queryP.prepare("UPDATE grupa_zajeciowa SET id_prowadzacego='"+prowa+"',id_godziny_zajec='"+godz+"',dzien_tygodnia='"+dzien+"',parzystosc_tygodnia='"+parzy+
