@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>839</width>
-    <height>539</height>
+    <height>588</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -557,50 +557,13 @@
             <string>Dane</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
-            <item row="3" column="1">
+            <item row="2" column="1">
              <widget class="QLabel" name="indeksL">
               <property name="text">
                <string>___</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <widget class="QLabel" name="label_6">
-              <property name="text">
-               <string>Kierunek:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="3">
-             <widget class="QLabel" name="peselL">
-              <property name="text">
-               <string>___</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="2">
-             <widget class="QLabel" name="label_7">
-              <property name="text">
-               <string>Semestr</string>
-              </property>
-             </widget>
-            </item>
-            <item row="9" column="1">
-             <widget class="QPushButton" name="pushButton">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Nadaj</string>
               </property>
              </widget>
             </item>
@@ -614,104 +577,117 @@
               </property>
              </widget>
             </item>
-            <item row="6" column="2">
-             <spacer name="horizontalSpacer_4">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+            <item row="0" column="4">
+             <widget class="QLabel" name="nazwiskoL">
+              <property name="text">
+               <string>___</string>
               </property>
-              <property name="sizeHint" stdset="0">
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="maximumSize">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>150</width>
+                <height>16777215</height>
                </size>
               </property>
-             </spacer>
+              <property name="text">
+               <string>Kierunek:</string>
+              </property>
+             </widget>
             </item>
             <item row="0" column="0">
              <widget class="QLabel" name="label_2">
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Imie:</string>
               </property>
              </widget>
             </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_4">
-              <property name="text">
-               <string>Numer indeksu:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="10" column="2">
-             <spacer name="horizontalSpacer_6">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="1" column="2">
-             <spacer name="horizontalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="0" column="2">
+            <item row="0" column="3">
              <widget class="QLabel" name="label_3">
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Nazwisko:</string>
               </property>
              </widget>
             </item>
-            <item row="9" column="3">
-             <widget class="QPushButton" name="pushButton_2">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>0</height>
-               </size>
+            <item row="3" column="1">
+             <widget class="QLabel" name="kierunekL">
+              <property name="text">
+               <string>___</string>
               </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="4">
+             <widget class="QLabel" name="semestrL">
+              <property name="text">
+               <string>___</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="4">
+             <widget class="QLabel" name="peselL">
+              <property name="text">
+               <string>___</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="3">
+             <widget class="QLabel" name="label_5">
               <property name="maximumSize">
                <size>
-                <width>200</width>
+                <width>150</width>
                 <height>16777215</height>
                </size>
               </property>
               <property name="text">
-               <string>Odbierz</string>
+               <string>PESEL:</string>
               </property>
              </widget>
             </item>
-            <item row="8" column="2">
-             <spacer name="horizontalSpacer_5">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
+            <item row="3" column="3">
+             <widget class="QLabel" name="label_7">
+              <property name="maximumSize">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>150</width>
+                <height>16777215</height>
                </size>
               </property>
-             </spacer>
+              <property name="text">
+               <string>Semestr</string>
+              </property>
+             </widget>
             </item>
-            <item row="11" column="0" colspan="4">
+            <item row="6" column="0" colspan="5">
              <widget class="QGroupBox" name="groupBox_2">
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>300</height>
+                <height>100</height>
                </size>
               </property>
               <property name="title">
@@ -730,6 +706,12 @@
                </item>
                <item row="1" column="1">
                 <widget class="QPushButton" name="pushButton_3">
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>Nadaj nowy termin</string>
                  </property>
@@ -740,7 +722,7 @@
                  <property name="maximumSize">
                   <size>
                    <width>220</width>
-                   <height>25</height>
+                   <height>30</height>
                   </size>
                  </property>
                  <property name="placeholderText">
@@ -751,81 +733,92 @@
               </layout>
              </widget>
             </item>
-            <item row="7" column="0">
+            <item row="4" column="0">
              <widget class="QLabel" name="label_8">
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Prawo do zapisów:</string>
               </property>
              </widget>
             </item>
-            <item row="4" column="2">
-             <spacer name="horizontalSpacer_3">
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Numer indeksu:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="prawoL">
+              <property name="text">
+               <string>___</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="4">
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Odbierz</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QPushButton" name="pushButton">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Nadaj</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <spacer name="horizontalSpacer_2">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
+                <width>200</width>
                 <height>20</height>
                </size>
               </property>
              </spacer>
-            </item>
-            <item row="0" column="3">
-             <widget class="QLabel" name="nazwiskoL">
-              <property name="text">
-               <string>___</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="2">
-             <widget class="QLabel" name="label_5">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>PESEL:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="1">
-             <widget class="QLabel" name="kierunekL">
-              <property name="text">
-               <string>___</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="3">
-             <widget class="QLabel" name="semestrL">
-              <property name="text">
-               <string>___</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="1" colspan="3">
-             <widget class="QLabel" name="prawoL">
-              <property name="layoutDirection">
-               <enum>Qt::LeftToRight</enum>
-              </property>
-              <property name="text">
-               <string>___</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
             </item>
            </layout>
           </widget>
@@ -1021,48 +1014,49 @@
         <attribute name="title">
          <string>Zarządzaj kursami</string>
         </attribute>
-        <layout class="QGridLayout" name="gridLayout_9">
+        <layout class="QGridLayout" name="gridLayout_11">
+         <item row="1" column="0">
+          <widget class="QListWidget" name="listaKURS"/>
+         </item>
          <item row="0" column="0">
-          <widget class="QGroupBox" name="groupBox_6">
-           <property name="maximumSize">
-            <size>
-             <width>350</width>
-             <height>16777215</height>
-            </size>
+          <widget class="QLabel" name="label_24">
+           <property name="text">
+            <string>Kursy:</string>
            </property>
-           <property name="title">
-            <string>Kursy</string>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_10">
-            <item row="0" column="0">
-             <widget class="QListWidget" name="listaKURS"/>
-            </item>
-           </layout>
           </widget>
          </item>
-         <item row="0" column="1">
+         <item row="1" column="1">
           <widget class="QGroupBox" name="groupBox_7">
            <property name="title">
             <string/>
            </property>
-           <layout class="QGridLayout" name="gridLayout_11">
-            <item row="7" column="0">
-             <widget class="QPushButton" name="pushButton_6">
-              <property name="minimumSize">
-               <size>
-                <width>250</width>
-                <height>0</height>
-               </size>
-              </property>
+           <layout class="QGridLayout" name="gridLayout_12">
+            <item row="3" column="1">
+             <widget class="QComboBox" name="semestrKURS"/>
+            </item>
+            <item row="7" column="1">
+             <widget class="QPushButton" name="pushButton_7">
               <property name="text">
-               <string>Usuń</string>
+               <string>Modyfikuj</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
-             <widget class="QLabel" name="idkursKURS">
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_29">
+              <property name="minimumSize">
+               <size>
+                <width>250</width>
+                <height>60</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>60</height>
+               </size>
+              </property>
               <property name="text">
-               <string/>
+               <string>Nazwa:</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -1080,90 +1074,13 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>25</height>
+                <height>30</height>
                </size>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="QComboBox" name="semestrKURS"/>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="label_19">
-              <property name="minimumSize">
-               <size>
-                <width>250</width>
-                <height>60</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>60</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Forma</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" colspan="2">
-             <widget class="QPushButton" name="createKURS">
-              <property name="text">
-               <string>Stwórz kurs</string>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="1">
-             <widget class="QPushButton" name="pushButton_7">
-              <property name="text">
-               <string>Modyfikuj</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_18">
-              <property name="minimumSize">
-               <size>
-                <width>250</width>
-                <height>60</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>60</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Nazwa </string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
             <item row="5" column="0">
-             <widget class="QLabel" name="label_20">
-              <property name="minimumSize">
-               <size>
-                <width>250</width>
-                <height>60</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>ECTS</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_16">
+             <widget class="QLabel" name="label_32">
               <property name="minimumSize">
                <size>
                 <width>250</width>
@@ -1177,7 +1094,7 @@
                </size>
               </property>
               <property name="text">
-               <string>ID</string>
+               <string>ECTS:</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -1185,7 +1102,7 @@
              </widget>
             </item>
             <item row="3" column="0">
-             <widget class="QLabel" name="label_17">
+             <widget class="QLabel" name="label_30">
               <property name="minimumSize">
                <size>
                 <width>250</width>
@@ -1199,7 +1116,29 @@
                </size>
               </property>
               <property name="text">
-               <string>Semestr</string>
+               <string>Semestr:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_26">
+              <property name="minimumSize">
+               <size>
+                <width>250</width>
+                <height>60</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>60</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>ID:</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -1209,8 +1148,66 @@
             <item row="4" column="1">
              <widget class="QComboBox" name="formaKURS"/>
             </item>
-            <item row="6" column="0" colspan="2">
-             <spacer name="horizontalSpacer_7">
+            <item row="5" column="1">
+             <widget class="QTextEdit" name="ectsKURS">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="idkursKURS">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_31">
+              <property name="minimumSize">
+               <size>
+                <width>250</width>
+                <height>60</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>60</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Forma:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QPushButton" name="pushButton_6">
+              <property name="minimumSize">
+               <size>
+                <width>250</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Usuń</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <spacer name="horizontalSpacer_3">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -1222,13 +1219,10 @@
               </property>
              </spacer>
             </item>
-            <item row="5" column="1">
-             <widget class="QTextEdit" name="ectsKURS">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>25</height>
-               </size>
+            <item row="0" column="0" colspan="2">
+             <widget class="QPushButton" name="createKURS">
+              <property name="text">
+               <string>Stwórz kurs</string>
               </property>
              </widget>
             </item>
@@ -1237,15 +1231,460 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="studentout">
-        <attribute name="title">
-         <string>Wypisz studenta</string>
-        </attribute>
-       </widget>
        <widget class="QWidget" name="studentin">
         <attribute name="title">
-         <string>Zapisz studenta</string>
+         <string>Zapisz/wypisz studenta</string>
         </attribute>
+        <layout class="QGridLayout" name="gridLayout_9">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_18">
+           <property name="text">
+            <string>Studenci:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_16">
+           <property name="text">
+            <string>Grupy:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QListWidget" name="grupy_zapisz">
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QListWidget" name="kursy_zapisz">
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QListWidget" name="studenci_zapisz">
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QGroupBox" name="groupBox_6">
+           <property name="title">
+            <string>Dane:</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_10">
+            <item row="5" column="0">
+             <widget class="QLabel" name="label_23">
+              <property name="maximumSize">
+               <size>
+                <width>160</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Sala zajęciowa:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="label_20">
+              <property name="maximumSize">
+               <size>
+                <width>160</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Wolne miejsca:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_21">
+              <property name="maximumSize">
+               <size>
+                <width>160</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Parzystość tygodnia:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="dzien_zajec_zapisz">
+              <property name="text">
+               <string>___</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_19">
+              <property name="maximumSize">
+               <size>
+                <width>160</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>ECTS:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="parzystosc_zapisz">
+              <property name="text">
+               <string>___</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="label_27">
+              <property name="maximumSize">
+               <size>
+                <width>160</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Prowadzący:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLabel" name="sala_zajeciowa_zapisz">
+              <property name="text">
+               <string>___</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_22">
+              <property name="maximumSize">
+               <size>
+                <width>160</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Dzień zajęć:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLabel" name="prowadzacy_zapisz">
+              <property name="text">
+               <string>___</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <widget class="QLabel" name="wolne_miejsca_zapisz">
+              <property name="text">
+               <string>___</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="godziny_zajec_zapisz">
+              <property name="text">
+               <string>___</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="ects_zapisz">
+              <property name="text">
+               <string>___</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_25">
+              <property name="maximumSize">
+               <size>
+                <width>160</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Godziny zajęć:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
+             <widget class="QPushButton" name="zapisz_zapisz">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Zapisz</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <widget class="QPushButton" name="wypisz_zapisz">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Wypisz</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_17">
+           <property name="text">
+            <string>Kursy:</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="studenkmodyfik">
+        <attribute name="title">
+         <string>Zarządzaj studentami</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_13">
+         <item row="0" column="0">
+          <widget class="QGroupBox" name="groupBox_8">
+           <property name="maximumSize">
+            <size>
+             <width>250</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="title">
+            <string>Studenci</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_14">
+            <item row="0" column="0">
+             <widget class="QListWidget" name="listastudentMODY">
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>250</width>
+                <height>16777215</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QGroupBox" name="groupBox_9">
+           <property name="title">
+            <string>Dane</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_15">
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_36">
+              <property name="text">
+               <string>Login</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QTextEdit" name="imieMODY">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_28">
+              <property name="text">
+               <string>Imie</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QTextEdit" name="peselMODY">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QLabel" name="label_33">
+              <property name="text">
+               <string>Nazwisko</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="3">
+             <widget class="QLabel" name="label_35">
+              <property name="text">
+               <string>Płeć</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QTextEdit" name="kierunekMODY">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="3">
+             <widget class="QLabel" name="label_37">
+              <property name="text">
+               <string>Hasło</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="4">
+             <widget class="QTextEdit" name="plecMODY">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_38">
+              <property name="text">
+               <string>Kierunek</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QTextEdit" name="loginMODY">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="3">
+             <widget class="QLabel" name="label_39">
+              <property name="text">
+               <string>Semestr</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_34">
+              <property name="text">
+               <string>PESEL</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="4">
+             <widget class="QTextEdit" name="semestrMODY">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="4">
+             <widget class="QTextEdit" name="nazwiskoMODY">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QPushButton" name="pushButton_9">
+              <property name="text">
+               <string>Usuń</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="4">
+             <widget class="QPushButton" name="pushButton_10">
+              <property name="text">
+               <string>Modyfikuj</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" colspan="4">
+             <widget class="QPushButton" name="pushButton_8">
+              <property name="text">
+               <string>Dodaj</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="4">
+             <widget class="QLineEdit" name="hasloMODY">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
      </item>
